@@ -8,6 +8,61 @@
     margin: 0 100px;
 }
 
+.photograph-header div {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.photograph-header div div {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.photograph-header div div:nth-child(1) {
+    flex-wrap: nowrap;
+    margin: 0 0 0 50px;
+}
+
+.photograph-header div div:nth-child(1) h1 {
+    font-size: 64px;
+    line-height: 83px;
+    color: #D3573C;
+    margin: 0;
+    word-wrap: normal;
+}
+
+.photograph-header div div:nth-child(1) .localisation {
+    font-size: 24px;
+    line-height: 31px;
+    color: #901C1C;
+    margin: 0;
+}
+
+.photograph-header div div:nth-child(1) .expression {
+    font-size: 18px;
+    line-height: 23px;
+    color: #525252;
+    margin: 20px 0 0 0;
+}
+
+.photograph-header div div:nth-child(3) {
+    align-content: flex-end;
+}
+
+.photograph-header div div:nth-child(3) img {
+    margin: 0 50px 0 0;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -73,4 +128,52 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 850px) {
+    .photograph-header {
+        height: 600px;
+    }
+
+    .photograph-header div div {
+        height: 50%;
+    }
+
+    .photograph-header div div:nth-child(3) {
+        align-content: center;
+    }
+
+    .photograph-header div div:nth-child(3) img {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .photograph-header {
+        height: 900px;
+        margin: 0 30px;
+    }
+
+    .photograph-header div {
+        justify-content: flex-start;
+    }
+
+    .photograph-header div div {
+        height: initial;
+        flex-direction: column;
+    }
+
+    .photograph-header div div:nth-child(1) {
+        align-items: center;
+        text-align: center;
+        margin: 0 25px;
+        order: 2;
+    }
+
+    .photograph-header div div:nth-child(2) {
+        order: 1;
+
+    }.photograph-header div div:nth-child(3) {
+        order: 3;
+    }
 }
