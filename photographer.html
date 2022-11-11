@@ -11,13 +11,41 @@
     <header>
       <img src="assets/images/logo.png" class="logo" />
     </header>
-
-    <!-- Information du photographe -->
     <main id="main">
+      <!-- Information du photographe -->
       <div class="photograph-header">
         <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button> -->
       </div>
+      
+      <!-- Select customiser -->
+      <div class="select">
+        <a>Trier par</a>
+        <div class="static-select hide" style="width:200px;">
+          <select>
+            <option value="0">Popularité</option>
+            <option value="1">Date</option>
+            <option value="2">Titre</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Les creations du dit photographes -->
+      <div class="photograph-creation">
+
+      </div>
     </main>
+
+    <!-- Fenetre du nb de like est du prix -->
+    <div class="floating-windows">
+      <div>
+        <a class="like-counter"></a>
+        <i class="fa-solid fa-heart"></i>
+      </div>
+      <div>
+        <a class="price"></a>
+        <a> / jour</a>
+      </div>
+    </div>
 
     <!-- Fenetre du formulaire de contact -->
     <div id="contact_modal">
@@ -35,8 +63,12 @@
 				</form>
 			</div>
 		</div>
+    <script src="https://kit.fontawesome.com/cb3029fffd.js" crossorigin="anonymous"></script>
+    <script src="/scripts/utils/select.js"></script>
+    <script src="/scripts/factories/media.js"></script>
     <script src="/scripts/factories/photographer.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
+    <script src="/scripts/utils/select.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

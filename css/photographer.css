@@ -2,6 +2,12 @@
     display: none;
 }
 
+.hide {
+    display: none;
+    height: 0;
+    width: 0;
+}
+
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -55,7 +61,7 @@
 }
 
 .photograph-header div div:nth-child(3) img {
-    margin: 0 50px 0 0;
+    margin: 0 50px 0 50px;
     height: 200px;
     width: 200px;
     object-fit: cover;
@@ -76,6 +82,154 @@
     cursor: pointer;
 }
 
+/* Select customiser */
+.select {
+    display: flex;
+    margin: 10px 0 30px 100px;
+}
+
+.select a {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 60px;
+    color: #000000;
+    margin-right: 25px;
+}
+
+.custom-select {
+    background-color: #901C1C;
+    border-radius: 5px;
+}
+
+.custom-select button {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #901C1C;
+    padding: 20px;
+    width: 170px;
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-select button i {
+    font-size: 16px;
+}
+
+.custom-select button.deploy-select {
+    border-radius: 5px 5px 0 0;
+}
+
+.custom-select button.deploy-select i{
+    transform: rotate(180deg);
+}
+
+.custom-select .bar {
+    background-color: #FFFFFF;
+    height: 1px;
+    margin: 0 10px 0 10px;
+    padding: 0;
+}
+
+.custom-select .other-options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    width: 170px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* .custom-select .other-options button {
+    height: 20px;
+    padding: 20px;
+    
+} */
+
+.custom-select .other-options .bar {
+    background-color: #FFFFFF;
+    height: 1px;
+    margin: 0 10px 0 10px;
+    padding: 0;
+}
+
+/* Affichage des images */
+.photograph-creation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 60px 0 60px;
+}
+
+.photograph-creation article {
+    width: 350px;
+    height: 350px;
+    margin: 0 40px 30px 40px;
+    justify-self: center;
+}
+
+.photograph-creation article .media {
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.photograph-creation article div {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.photograph-creation article div a {
+    font-weight: 400;
+    font-size: 24px;
+    color: #911C1C;
+}
+
+.photograph-creation article div a:nth-child(2) {
+    flex-wrap: nowrap;
+    min-width: 70px;
+}
+
+.photograph-creation article div a i{
+    margin: 0 0 0 6px;
+    line-height: 31px;
+    height: 31px;
+    vertical-align: middle;
+}
+
+.floating-windows {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 35px 0 35px;
+    border-radius: 5px 5px 0 0;
+    width: 370px;
+    height: 70px;
+    bottom: 0;
+    right: 40px;
+    background-color: #DB8876;
+    line-height: 70px;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+/* Fenetre du formulaire de contact */
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
