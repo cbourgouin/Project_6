@@ -101,6 +101,10 @@
     border-radius: 5px;
 }
 
+.custom-select--deploy {
+    border-radius: 5px 5px 0 0;
+}
+
 .custom-select button {
     display: flex;
     justify-content: space-between;
@@ -124,7 +128,7 @@
     border-radius: 5px 5px 0 0;
 }
 
-.custom-select button.deploy-select i{
+.custom-select button.deploy-select i {
     transform: rotate(180deg);
 }
 
@@ -152,12 +156,6 @@
     z-index: 1;
 }
 
-/* .custom-select .other-options button {
-    height: 20px;
-    padding: 20px;
-    
-} */
-
 .custom-select .other-options .bar {
     background-color: #FFFFFF;
     height: 1px;
@@ -167,10 +165,24 @@
 
 /* Affichage des images */
 .photograph-creation {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 100px;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0 60px 0 60px;
+    margin: 0 60px 70px 60px;
+}
+
+@media only screen and (max-width: 1630px) {
+    .photograph-creation {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .photograph-creation {
+        grid-template-columns: 1fr;
+    }
 }
 
 .photograph-creation article {
@@ -206,7 +218,7 @@
     min-width: 70px;
 }
 
-.photograph-creation article div a i{
+.photograph-creation article div a i {
     margin: 0 0 0 6px;
     line-height: 31px;
     height: 31px;
@@ -234,6 +246,7 @@
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -284,50 +297,112 @@ form input {
     border-radius: 5px;
 }
 
-@media only screen and (max-width: 850px) {
+form input[data-error]::after,
+form input[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.4em;
+    color: #e54858;
+    display: block;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-align: left;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+form input[data-error-visible="true"]::after,
+form input[data-error]::after {
+    opacity: 1;
+}
+
+form input[data-error-visible="true"] .text-control,
+form input[data-error]::after .text-control {
+    border: 2px solid #e54858;
+}
+
+form textarea {
+    width: 100%;
+    height: 68px;
+    border: none;
+    border-radius: 5px;
+    flex: 1;
+}
+
+/* Lightbox */
+#lightbox {
+    display: none;
+    height: 90%;
+    /* display: flex; */
+    flex-direction: row;
+}
+
+#lightbox div {
+    flex-direction: column;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#lightbox div i {
+    font-size: 50px;
+    color: #911C1C;
+    text-align: center;
+    cursor: pointer;
+}
+
+#lightbox div:nth-child(2) {
+    width: 1200px;
+    height: 900px;
+}
+
+#lightbox div:nth-child(2) img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+#lightbox div:nth-child(3) {
+    justify-content: space-between;
+}
+
+#lightbox div:nth-child(3) i, #lightbox div:nth-child(3) div {
+    width: 100px;
+    height: 100px;
+}
+
+@media only screen and (max-width: 900px) {
     .photograph-header {
-        height: 600px;
+        min-height: 300px;
+        height: initial;
+    }
+
+    .photograph-header div {
+        flex-direction: column-reverse;
+        min-height: 300px;
+        height: initial;
     }
 
     .photograph-header div div {
         height: 50%;
     }
 
-    .photograph-header div div:nth-child(3) {
-        align-content: center;
-    }
-
-    .photograph-header div div:nth-child(3) img {
-        margin: 0;
-    }
-}
-
-@media only screen and (max-width: 600px) {
-    .photograph-header {
-        height: 900px;
-        margin: 0 30px;
-    }
-
-    .photograph-header div {
-        justify-content: flex-start;
-    }
-
-    .photograph-header div div {
-        height: initial;
-        flex-direction: column;
-    }
-
     .photograph-header div div:nth-child(1) {
-        align-items: center;
         text-align: center;
-        margin: 0 25px;
+        margin: 0;
         order: 2;
     }
 
     .photograph-header div div:nth-child(2) {
         order: 1;
+    }
 
-    }.photograph-header div div:nth-child(3) {
+    .photograph-header div div:nth-child(3) {
+        align-content: center;
         order: 3;
+    }
+
+    .photograph-header div div:nth-child(3) img {
+        margin: 0;
     }
 }

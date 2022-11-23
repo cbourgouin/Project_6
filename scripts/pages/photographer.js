@@ -29,13 +29,11 @@
     const customSelect = await displayCustomSelect(staticSelect);
     select.appendChild(customSelect);
 
-    //Tries des données en fonction du select 
-
     //Ajouter les bonne données au flottant 
     const nbLike = document.querySelector(".like-counter");
     const price = document.querySelector(".price");
     nbLike.textContent = calculLikes(photographerMedias);
-    price.textContent = photographer.price;
+    price.textContent = photographer[0].price;
 
 
     displayDataPhotograph(photographer);
@@ -84,6 +82,9 @@ function displayCustomSelect(select) {
     div.setAttribute("class", "custom-select");
     const button = document.createElement("button");
     button.setAttribute("onclick", "clickButtonSelect()");
+    button.setAttribute("role", "button");
+    button.setAttribute("aria-haspopup", "listbox");
+    button.setAttribute("aria-expanded", "");
     button.textContent = select.options[select.selectedIndex].text;
     const i = document.createElement("i");
     i.setAttribute("class", "fa-solid fa-chevron-down");
@@ -97,6 +98,10 @@ function displayCustomSelect(select) {
             option.textContent = select.options[i].text;
             option.addEventListener("click", clickOtherOption);
             option.setAttribute("value", select.options[i].value);
+            option.setAttribute("role", "listbox");
+            option.setAttribute("aria-activedescendant", select.options[i].textContent);
+            option.setAttribute("aria-selected", select.options[i].textContent);
+            option.setAttribute("aria-labelledby", select.options[i].textContent);
             otherOptions.appendChild(option);
             if(i !== select.options.length - 1) {
                 const bar = document.createElement('div');

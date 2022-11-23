@@ -9,6 +9,7 @@ function photographerFactory(data) {
         const liens = document.createElement( 'a' );
         liens.href = './photographer.html?photographers_id=' + id;
         liens.setAttribute( 'class', 'liens');
+        liens.setAttribute( 'alt', name);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);
@@ -30,8 +31,8 @@ function photographerFactory(data) {
         infoContextuel.appendChild(prix);
         liens.appendChild(img);
         liens.appendChild(h2);
-        liens.appendChild(infoContextuel);
         article.appendChild(liens);
+        article.appendChild(infoContextuel);
         return (article);
     }
 
@@ -43,6 +44,7 @@ function photographerFactory(data) {
         const button = document.createElement( 'button' );
         button.setAttribute("class", "contact_button");
         button.setAttribute("onclick", "displayModal()");
+        button.setAttribute("aria-label", "Contact Me");
         button.textContent = "Contactez-moi";
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);

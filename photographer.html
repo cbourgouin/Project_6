@@ -9,12 +9,11 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
     </header>
     <main id="main">
       <!-- Information du photographe -->
       <div class="photograph-header">
-        <!-- <button class="contact_button" onclick="displayModal()">Contactez-moi</button> -->
       </div>
       
       <!-- Select customiser -->
@@ -43,26 +42,54 @@
       </div>
       <div>
         <a class="price"></a>
-        <a> / jour</a>
+        <a>€ / jour</a>
       </div>
     </div>
 
     <!-- Fenetre du formulaire de contact -->
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-labelledby="modal_title">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <h1 id="modal_title" role="heading">Contactez-moi</h1>
+          <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="Close Contact form" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
+				<form name="modal-form" action="#">
+					<div data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom.">
+            <label for="first">Prénom</label>
+            <input class="input-first" type="text" id="first" name="first" aria-label="First name"/>
+          </div>
+          <div data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
+            <label for="last">Nom</label>
+            <input class="input-last" type="text" id="last" name="last" aria-label="Last name">
+          </div>
+          <div data-error="Veuillez entrer votre email.">
+            <label for="email">E-mail</label>
+            <input class="input-email" type="text" id="email" name="email" aria-label="Email">
+          </div>
+          <div data-error="Veuillez entrer votre message">
+						<label for="message">Votre message</label>
+						<textarea name="message" cols="40" rows="5" aria-label="Your message"></textarea>
+          </div>
+          <button type="button" class="contact_button" onclick="sendFormContact()" aria-label="Send">Envoyer</button>
 				</form>
 			</div>
 		</div>
+
+    <!-- Lightbox  -->
+    <div id="lightbox">
+      <div>
+        <i class="fa-solid fa-chevron-left"></i>
+      </div>
+      <div>
+        <img src="" class="lightbox-image" alt="" />
+      </div>
+      <div>
+        <i class="fa-solid fa-xmark"></i>
+        <i class="fa-solid fa-chevron-right close_button"></i>
+        <div></div>
+      </div>
+    </div>
+
     <script src="https://kit.fontawesome.com/cb3029fffd.js" crossorigin="anonymous"></script>
     <script src="/scripts/utils/select.js"></script>
     <script src="/scripts/factories/media.js"></script>
@@ -70,5 +97,6 @@
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/select.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightboxModal.js"></script>
   </body>
 </html>

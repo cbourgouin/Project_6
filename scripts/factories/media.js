@@ -9,6 +9,7 @@ function mediaFactory(data) {
     // Creation des card des créations du photographes
     function getMediaCardDOM() {
         const article = document.createElement( 'article' );
+        article.addEventListener("click", displayLightbox);
         const format = media.substring(media.lastIndexOf('.') + 1, media.length);
         console.log(format);
         if(video==undefined) {
@@ -16,6 +17,7 @@ function mediaFactory(data) {
             img.setAttribute("class", "media");
             img.setAttribute("src", media);
             img.setAttribute("type", title);
+            img.setAttribute("alt", title + ", closeup view");
             article.appendChild( img );
         }
         else{
@@ -28,7 +30,6 @@ function mediaFactory(data) {
             vid.appendChild(source);
             article.appendChild( vid );
         }
-        
         const div = document.createElement( 'div' );
         const picTitle = document.createElement( 'a' );
         picTitle.textContent = title;
@@ -36,11 +37,11 @@ function mediaFactory(data) {
         picLike.textContent = likes;
         const hearth = document.createElement( 'i' );
         hearth.setAttribute("class", "fa-solid fa-heart");
+        hearth.setAttribute("aria-label", "likes");
         picLike.appendChild(hearth);
         div.appendChild(picTitle);
         div.appendChild(picLike);
         article.appendChild( div );
-
         return article;
     }
 

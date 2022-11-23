@@ -1,14 +1,17 @@
 //afficher ou masquer le menu déroulant 
 function clickButtonSelect() {
     const otherOptions = document.querySelector(".other-options");
+    const customSelect = document.querySelector(".custom-select");
     const button = document.querySelector(".custom-select button");
     const bar = document.querySelector(".bar");
     if (otherOptions.getAttribute("class") === "other-options hide") {
         otherOptions.setAttribute("class", "other-options");
+        customSelect.setAttribute("class", "custom-select custom-select--deploy");
         button.setAttribute("class", "deploy-select");
         bar.setAttribute("class", "bar");
     } else if (otherOptions.getAttribute("class") === "other-options") {
         otherOptions.setAttribute("class", "other-options hide");
+        customSelect.setAttribute("class", "custom-select");
         button.removeAttribute("class");
         bar.setAttribute("class", "bar hide");
     }
