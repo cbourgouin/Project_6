@@ -78,14 +78,14 @@
     <!-- Lightbox  -->
     <div id="lightbox">
       <div>
-        <i class="fa-solid fa-chevron-left"></i>
+        <i class="fa-solid fa-chevron-left" onclick="previousMedia()"></i>
+      </div>
+      <div class="media_container">
+        
       </div>
       <div>
-        <img src="" class="lightbox-image" alt="" />
-      </div>
-      <div>
-        <i class="fa-solid fa-xmark"></i>
-        <i class="fa-solid fa-chevron-right close_button"></i>
+        <i class="fa-solid fa-xmark close_button" onclick="closeLightbox()" aria-label="Close"></i>
+        <i class="fa-solid fa-chevron-right" onclick="nextMedia()"></i>
         <div></div>
       </div>
     </div>

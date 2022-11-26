@@ -35,6 +35,10 @@
     nbLike.textContent = calculLikes(photographerMedias);
     price.textContent = photographer[0].price;
 
+    //modification modal de contact 
+    const modalTitle = document.querySelector('#modal_title');
+    modalTitle.textContent = modalTitle.textContent + " " + photographer[0].name;
+
 
     displayDataPhotograph(photographer);
     displayDataMedia(photographerMedias);
@@ -52,16 +56,8 @@ async function displayDataPhotograph(photographer) {
 // Creation des card clickable des photos
 async function displayDataMedia(medias) {
     const photographersCreation = document.querySelector(".photograph-creation");
-    const staticSelect = document.querySelector(".static-select select");
 
-    switch(staticSelect.value) {
-        case "0" : medias.sort(mediaSortByLikes);
-        break;
-        case "1" : medias.sort(mediaSortByDate);
-        break;
-        case "2" : medias.sort(mediaSortByTitre);
-        break;
-    }
+    medias = sortDataMedia(medias);
 
     var child = photographersCreation.lastElementChild; 
     while (child) {
@@ -75,6 +71,22 @@ async function displayDataMedia(medias) {
         photographersCreation.appendChild(mediaCardDOM);
     });
 };
+
+// Trie des données en fonction du select
+function sortDataMedia(medias){
+    const staticSelect = document.querySelector(".static-select select");
+
+    switch(staticSelect.value) {
+        case "0" : medias.sort(mediaSortByLikes);
+        break;
+        case "1" : medias.sort(mediaSortByDate);
+        break;
+        case "2" : medias.sort(mediaSortByTitre);
+        break;
+    }
+
+    return medias;
+}
 
 // Creer le custom select 
 function displayCustomSelect(select) {

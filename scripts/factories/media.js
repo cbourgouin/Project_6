@@ -10,6 +10,7 @@ function mediaFactory(data) {
     function getMediaCardDOM() {
         const article = document.createElement( 'article' );
         article.addEventListener("click", displayLightbox);
+        article.setAttribute("data-id", id);
         const format = media.substring(media.lastIndexOf('.') + 1, media.length);
         console.log(format);
         if(video==undefined) {
@@ -22,7 +23,6 @@ function mediaFactory(data) {
         }
         else{
             const vid = document.createElement( 'video' );
-            vid.setAttribute("controls", "");
             vid.setAttribute("class", "media");
             const source = document.createElement( 'source' );
             source.setAttribute("src", media);

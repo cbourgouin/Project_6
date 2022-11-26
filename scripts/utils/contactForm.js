@@ -4,12 +4,15 @@ function displayModal() {
     const main = document.getElementById("main");
     const header = document.querySelector("header");
     const closeButton = document.querySelector(".modal header img");
+    const floatingWindows = document.querySelector(".floating-windows");
     modal.style.display = "block";
     main.style.display = "none";
     header.style.display = "none";
+    floatingWindows.style.display = "none";
     modal.setAttribute("aria-hidden", "false");
     main.setAttribute("aria-hidden", "true");
     header.setAttribute("aria-hidden", "true");
+    floatingWindows.setAttribute("aria-hidden", "true");
     closeButton.focus();
 }
 
@@ -18,12 +21,15 @@ function closeModal() {
     const modal = document.getElementById("contact_modal");
     const main = document.getElementById("main");
     const header = document.querySelector("header");
+    const floatingWindows = document.querySelector(".floating-windows");
     modal.style.display = "none";
     main.style.display = "block";
     header.style.display = "flex";
+    floatingWindows.style.display = "flex";
     modal.setAttribute("aria-hidden", "true");
     main.setAttribute("aria-hidden", "false");
     header.setAttribute("aria-hidden", "false");
+    floatingWindows.setAttribute("aria-hidden", "false");
 }
 
 //Envoie des information du formulaire de contact
@@ -59,11 +65,11 @@ function sendFormContact() {
     }
 
     //vérification du message 
-    if (nom.value.length <= 0) {
-        nom.parentElement.setAttribute('data-error-visible', 'true');
+    if (message.value.length <= 0) {
+        message.parentElement.setAttribute('data-error-visible', 'true');
         validation = false;
     } else {
-        nom.parentElement.removeAttribute('data-error-visible');
+        message.parentElement.removeAttribute('data-error-visible');
     }
 
     //Afficher le message de validation

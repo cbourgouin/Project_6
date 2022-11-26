@@ -242,6 +242,10 @@
 }
 
 /* Fenetre du formulaire de contact */
+#contact_modal {
+    margin-top: 70px;
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -258,16 +262,22 @@
 .modal header {
     justify-content: space-between;
     width: 100%;
+    height: initial;
+    display: column;
 }
 
 .modal header img {
     cursor: pointer;
 }
 
-.modal header h2 {
+.modal header h1 {
     font-size: 64px;
-    font-weight: normal;
+    font-weight: 400;
+    font-style: normal;
+    color: #000000;
     text-align: center;
+    margin: 0;
+    text-align: left;
 }
 
 form {
@@ -297,11 +307,12 @@ form input {
     border-radius: 5px;
 }
 
-form input[data-error]::after,
-form input[data-error]::after {
+form div[data-error]::after,
+form div[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: #e54858;
+    font-size: 18px;
     display: block;
     margin-top: 7px;
     margin-bottom: 7px;
@@ -311,13 +322,12 @@ form input[data-error]::after {
     transition: 0.3s;
 }
 
-form input[data-error-visible="true"]::after,
-form input[data-error]::after {
+form div[data-error-visible="true"]::after {
     opacity: 1;
 }
 
-form input[data-error-visible="true"] .text-control,
-form input[data-error]::after .text-control {
+form div[data-error-visible="true"] input,
+form div[data-error-visible="true"] textarea {
     border: 2px solid #e54858;
 }
 
@@ -333,8 +343,9 @@ form textarea {
 #lightbox {
     display: none;
     height: 90%;
-    /* display: flex; */
     flex-direction: row;
+    margin-top: 70px;
+    margin: auto;
 }
 
 #lightbox div {
