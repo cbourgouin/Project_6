@@ -29,7 +29,7 @@ function clickOtherOption() {
 
         //Récupération des données des media
         async function getMedia() {
-            return fetch("../../data/photographers.json")
+            return fetch("/data/photographers.json")
                 .then(responce => responce.json())
                 .then(json => json.media);
         }
