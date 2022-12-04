@@ -17,7 +17,7 @@ function displayLightbox() {
     (async () => {
         //Récupération des données des media
         async function getMedia() {
-            return fetch('/data/photographers.json')
+            return fetch('data/photographers.json')
                 .then((responce) => responce.json())
                 .then((json) => json.media);
         }
@@ -103,7 +103,7 @@ function nextMedia() {
 
         //Récupération des données 
         async function getMedia() {
-            return fetch('/data/photographers.json')
+            return fetch('data/photographers.json')
                 .then((responce) => responce.json())
                 .then((json) => json.media);
         }
@@ -161,7 +161,7 @@ function previousMedia() {
 
         //Récupération des données 
         async function getMedia() {
-            return fetch('/data/photographers.json')
+            return fetch('data/photographers.json')
                 .then((responce) => responce.json())
                 .then((json) => json.media);
         }
