@@ -1,7 +1,7 @@
 
     //Récupération des données des photographes
     async function getPhotographers() {
-        return fetch('data/photographers.json')
+        return fetch('Project_6/data/photographers.json')
         .then(responce => responce.json())
         .then(json => json.photographers);
     }
