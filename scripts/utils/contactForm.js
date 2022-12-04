@@ -1,43 +1,52 @@
 //Afficher le formulaire de contact
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-    const main = document.getElementById("main");
-    const header = document.querySelector("header");
-    const closeButton = document.querySelector(".modal header img");
-    const floatingWindows = document.querySelector(".floating-windows");
-    modal.style.display = "block";
-    main.style.display = "none";
-    header.style.display = "none";
-    floatingWindows.style.display = "none";
-    modal.setAttribute("aria-hidden", "false");
-    main.setAttribute("aria-hidden", "true");
-    header.setAttribute("aria-hidden", "true");
-    floatingWindows.setAttribute("aria-hidden", "true");
+    const modal = document.getElementById('contact_modal');
+    const main = document.getElementById('main');
+    const header = document.querySelector('header');
+    const closeButton = document.querySelector('.modal header img');
+    const floatingWindows = document.querySelector('.floating-windows');
+    modal.style.display = 'block';
+    main.style.display = 'none';
+    header.style.display = 'none';
+    floatingWindows.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'false');
+    main.setAttribute('aria-hidden', 'true');
+    header.setAttribute('aria-hidden', 'true');
+    floatingWindows.setAttribute('aria-hidden', 'true');
     closeButton.focus();
 }
 
+//utilisation du clavier pour la navigation
+document.addEventListener('keydown', (e) => {
+    const keyCode = e.keyCode ? e.keyCode : e.which;
+ 
+    if(keyCode === 27 ) {
+        closeLightbox();
+    }
+});
+
 //fermer le formulaire de contact
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    const main = document.getElementById("main");
-    const header = document.querySelector("header");
-    const floatingWindows = document.querySelector(".floating-windows");
-    modal.style.display = "none";
-    main.style.display = "block";
-    header.style.display = "flex";
-    floatingWindows.style.display = "flex";
-    modal.setAttribute("aria-hidden", "true");
-    main.setAttribute("aria-hidden", "false");
-    header.setAttribute("aria-hidden", "false");
-    floatingWindows.setAttribute("aria-hidden", "false");
+    const modal = document.getElementById('contact_modal');
+    const main = document.getElementById('main');
+    const header = document.querySelector('header');
+    const floatingWindows = document.querySelector('.floating-windows');
+    modal.style.display = 'none';
+    main.style.display = 'block';
+    header.style.display = 'flex';
+    floatingWindows.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'true');
+    main.setAttribute('aria-hidden', 'false');
+    header.setAttribute('aria-hidden', 'false');
+    floatingWindows.setAttribute('aria-hidden', 'false');
 }
 
 //Envoie des information du formulaire de contact
 function sendFormContact() {
-    const prenom = document.forms["modal-form"]["first"];
-    const nom = document.forms["modal-form"]["last"];
-    const email = document.forms["modal-form"]["email"];
-    const message = document.forms["modal-form"]["message"];
+    const prenom = document.forms['modal-form']['first'];
+    const nom = document.forms['modal-form']['last'];
+    const email = document.forms['modal-form']['email'];
+    const message = document.forms['modal-form']['message'];
     let validation = true;
 
     //vérification du prénom
@@ -74,10 +83,10 @@ function sendFormContact() {
 
     //Afficher le message de validation
     if (validation) {
-        console.log("prénom : " + prenom.value);
-        console.log("nom : " + nom.value);
-        console.log("email : " + email.value);
-        console.log("le message : " + message.value);
+        console.log('prénom : ' + prenom.value);
+        console.log('nom : ' + nom.value);
+        console.log('email : ' + email.value);
+        console.log('le message : ' + message.value);
         prenom.value = '';
         nom.value = '';
         email.value = '';
@@ -99,13 +108,13 @@ function verifEMail(_email) {
             validation = false;
         }
 
-        //compte du nombre de "@"
+        //compte du nombre de '@'
         if (_email[i] === '@') {
             compteurDeA++;
         }
     }
 
-    //vérification de la quantité de "@" et la position des "."
+    //vérification de la quantité de '@' et la position des '.'
     if (compteurDeA !== 1 || _email.indexOf('.', (_email.indexOf('@') + 2)) === -1) {
         validation = false;
     }

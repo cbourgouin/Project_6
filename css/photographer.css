@@ -82,6 +82,11 @@
     cursor: pointer;
 }
 
+.contact_button:hover {
+    background-color: #DB8876;
+    color: black;
+}
+
 /* Select customiser */
 .select {
     display: flex;
@@ -346,6 +351,7 @@ form textarea {
     flex-direction: row;
     margin-top: 70px;
     margin: auto;
+    justify-content: center;
 }
 
 #lightbox div {
@@ -382,7 +388,7 @@ form textarea {
     height: 100px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1150px) {
     .photograph-header {
         min-height: 300px;
         height: initial;
