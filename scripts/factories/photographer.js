@@ -7,9 +7,9 @@ function photographerFactory(data) {
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const liens = document.createElement( 'a' );
-        liens.href = './photographer.html?photographers_id=' + id;
+        liens.href = '/photographer.html?photographers_id=' + id;
         liens.setAttribute( 'class', 'liens');
-        liens.setAttribute( 'alt', name);
+        liens.setAttribute( 'aria-label', name);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);

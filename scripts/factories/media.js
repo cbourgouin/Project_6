@@ -17,6 +17,7 @@ function mediaFactory(data) {
             img.setAttribute('src', media);
             img.setAttribute('type', title);
             img.setAttribute('data-id', id);
+            img.setAttribute('role', 'button');
             img.addEventListener('click', displayLightbox);
             img.setAttribute('alt', title + ', closeup view');
             article.appendChild(img);
@@ -26,6 +27,7 @@ function mediaFactory(data) {
             vid.setAttribute('class', 'media');
             vid.addEventListener('click', displayLightbox);
             vid.setAttribute('data-id', id);
+            vid.setAttribute('role', 'button');
             const source = document.createElement('source');
             source.setAttribute('src', media);
             source.setAttribute('type', 'video/' + media.substring(media.lastIndexOf('.') + 1, media.length));

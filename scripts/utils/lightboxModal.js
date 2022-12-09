@@ -146,7 +146,7 @@ function nextMedia() {
             //ajout du titre
             var titre = document.querySelector('#lightbox .media_container h1');
             mediaContainer.removeChild(titre);
-            titre.textContent = photographerMedias[indexMediaDisplay - 1].title;
+            titre.textContent = photographerMedias[indexMediaDisplay + 1].title;
             mediaContainer.appendChild(titre);
         }
     })();

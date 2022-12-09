@@ -1,103 +1,109 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"/>
-    </header>
-    <main id="main">
-      <!-- Information du photographe -->
-      <div class="photograph-header">
+
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <a href="/index.html">
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
+    </a>
+  </header>
+  <main id="main">
+    <!-- Information du photographe -->
+    <div class="photograph-header">
+    </div>
+
+    <!-- Select customiser -->
+    <div class="select">
+      <a>Trier par</a>
+      <div class="static-select hide" style="width:200px;">
+        <select>
+          <option value="0">Popularité</option>
+          <option value="1">Date</option>
+          <option value="2">Titre</option>
+        </select>
       </div>
-      
-      <!-- Select customiser -->
-      <div class="select">
-        <a>Trier par</a>
-        <div class="static-select hide" style="width:200px;">
-          <select>
-            <option value="0">Popularité</option>
-            <option value="1">Date</option>
-            <option value="2">Titre</option>
-          </select>
+    </div>
+
+    <!-- Les creations du dit photographes -->
+    <div class="photograph-creation">
+
+    </div>
+  </main>
+
+  <!-- Fenetre du nb de like est du prix -->
+  <div class="floating-windows">
+    <div>
+      <a class="like-counter"></a>
+      <i class="fa-solid fa-heart"></i>
+    </div>
+    <div>
+      <a class="price"></a>
+      <a>€ / jour</a>
+    </div>
+  </div>
+
+  <!-- Fenetre du formulaire de contact -->
+  <div id="contact_modal" role="dialog" aria-labelledby="#modal_title">
+    <div class="modal">
+      <header>
+        <h1 id="modal_title" role="heading">Contactez-moi</h1>
+        <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="Close Contact form" />
+      </header>
+      <form name="modal-form" action="#">
+        <div data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom.">
+          <label id="first_label" for="first">Prénom</label>
+          <input class="input-first" type="text" id="first" name="first" aria-labelledby="#first_label" />
         </div>
-      </div>
-      
-      <!-- Les creations du dit photographes -->
-      <div class="photograph-creation">
-
-      </div>
-    </main>
-
-    <!-- Fenetre du nb de like est du prix -->
-    <div class="floating-windows">
-      <div>
-        <a class="like-counter"></a>
-        <i class="fa-solid fa-heart"></i>
-      </div>
-      <div>
-        <a class="price"></a>
-        <a>€ / jour</a>
-      </div>
+        <div data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
+          <label id="last_label" for="last">Nom</label>
+          <input class="input-last" type="text" id="last" name="last" aria-labelledby="#last_label">
+        </div>
+        <div data-error="Veuillez entrer votre email.">
+          <label id="email_label" for="email">E-mail</label>
+          <input class="input-email" type="text" id="email" name="email" aria-labelledby="#email_label">
+        </div>
+        <div data-error="Veuillez entrer votre message">
+          <label id="message_label" for="message">Votre message</label>
+          <textarea name="message" cols="40" rows="5" aria-labelledby="#message_label"></textarea>
+        </div>
+        <button type="button" class="contact_button" onclick="sendFormContact()" aria-label="Send">Envoyer</button>
+      </form>
     </div>
+  </div>
 
-    <!-- Fenetre du formulaire de contact -->
-    <div id="contact_modal" role="dialog" aria-labelledby="#modal_title">
-			<div class="modal">
-				<header>
-          <h1 id="modal_title" role="heading">Contactez-moi</h1>
-          <img src="assets/icons/close.svg" onclick="closeModal()" aria-label="Close Contact form" />
-        </header>
-				<form name="modal-form" action="#">
-					<div data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom.">
-            <label id="first_label" for="first">Prénom</label>
-            <input class="input-first" type="text" id="first" name="first" aria-labelledby="#first_label"/>
-          </div>
-          <div data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom.">
-            <label id="last_label" for="last">Nom</label>
-            <input class="input-last" type="text" id="last" name="last" aria-labelledby="#last_label">
-          </div>
-          <div data-error="Veuillez entrer votre email.">
-            <label id="email_label" for="email">E-mail</label>
-            <input class="input-email" type="text" id="email" name="email" aria-labelledby="#email_label">
-          </div>
-          <div data-error="Veuillez entrer votre message">
-						<label id="message_label" for="message">Votre message</label>
-						<textarea name="message" cols="40" rows="5" aria-labelledby="#message_label"></textarea>
-          </div>
-          <button type="button" class="contact_button" onclick="sendFormContact()" aria-label="Send">Envoyer</button>
-				</form>
-			</div>
-		</div>
-
-    <!-- Lightbox  -->
-    <div id="lightbox" aria-label=”image closeup view”>
-      <div>
-        <i class="fa-solid fa-chevron-left" aria-label="Previous image" onclick="previousMedia()"></i>
-      </div>
-      <div class="media_container">
-        
-      </div>
-      <div>
-        <i class="fa-solid fa-xmark close_button" aria-label="Close dialog" onclick="closeLightbox()" aria-label="Close"></i>
-        <i class="fa-solid fa-chevron-right" aria-label="Next image" onclick="nextMedia()"></i>
-        <div></div>
-      </div>
+  <!-- Lightbox  -->
+  <div id="lightbox" aria-label=”image closeup view”>
+    <div>
+      <i class="fa-solid fa-chevron-left" aria-label="Previous image" onclick="previousMedia()"></i>
     </div>
+    <div class="media_container">
 
-    <script src="https://kit.fontawesome.com/cb3029fffd.js" crossorigin="anonymous"></script>
-    <script src="/scripts/utils/select.js"></script>
-    <script src="/scripts/factories/media.js"></script>
-    <script src="/scripts/factories/photographer.js"></script>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/select.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/utils/lightboxModal.js"></script>
-    <script src="/scripts/utils/likesButton.js"></script>
-  </body>
+    </div>
+    <div>
+      <i class="fa-solid fa-xmark close_button" aria-label="Close dialog" onclick="closeLightbox()"
+        aria-label="Close"></i>
+      <i class="fa-solid fa-chevron-right" aria-label="Next image" onclick="nextMedia()"></i>
+      <div></div>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/cb3029fffd.js" crossorigin="anonymous"></script>
+  <script src="/scripts/utils/select.js"></script>
+  <script src="/scripts/factories/media.js"></script>
+  <script src="/scripts/factories/photographer.js"></script>
+  <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/utils/select.js"></script>
+  <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/utils/lightboxModal.js"></script>
+  <script src="/scripts/utils/likesButton.js"></script>
+</body>
+
 </html>
