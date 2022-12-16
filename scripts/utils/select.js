@@ -11,7 +11,7 @@ function clickButtonSelect() {
         bar.setAttribute("class", "bar");
     } else if (otherOptions.getAttribute("class") === "other-options") {
         otherOptions.setAttribute("class", "other-options hide");
-        customSelect.setAttribute("class", "custom-select");
+        customSelect.setAttribute("class", "custom-select");0
         button.removeAttribute("class");
         bar.setAttribute("class", "bar hide");
     }

@@ -97,6 +97,8 @@ function displayCustomSelect(select) {
     button.setAttribute('role', 'button');
     button.setAttribute('aria-haspopup', 'listbox');
     button.setAttribute('aria-expanded', '');
+    button.setAttribute('id', select.options[select.selectedIndex].text);
+    button.setAttribute('aria-labeledby', select.options[select.selectedIndex].text);
     button.textContent = select.options[select.selectedIndex].text;
     const i = document.createElement('i');
     i.setAttribute('class', 'fa-solid fa-chevron-down');
@@ -113,6 +115,7 @@ function displayCustomSelect(select) {
             option.setAttribute('role', 'listbox');
             option.setAttribute('aria-activedescendant', select.options[i].textContent);
             option.setAttribute('aria-selected', select.options[i].textContent);
+            option.setAttribute('id', select.options[i].textContent);
             option.setAttribute('aria-labelledby', select.options[i].textContent);
             otherOptions.appendChild(option);
             if(i !== select.options.length - 1) {

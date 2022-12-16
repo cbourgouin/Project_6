@@ -205,6 +205,13 @@ header {
     justify-self: center;
 }
 
+.photograph-creation article button{
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
 .photograph-creation article .media {
     width: 350px;
     height: 300px;

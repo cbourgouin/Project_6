@@ -9,6 +9,9 @@ function mediaFactory(data) {
     // Creation des card des créations du photographes
     function getMediaCardDOM() {
         const article = document.createElement('article');
+        const buttonMed = document.createElement('button');
+        buttonMed.setAttribute('role', 'button');
+        buttonMed.addEventListener('click', displayLightbox);
         const format = media.substring(media.lastIndexOf('.') + 1, media.length);
         console.log(format);
         if (video == undefined) {
@@ -16,24 +19,22 @@ function mediaFactory(data) {
             img.setAttribute('class', 'media');
             img.setAttribute('src', media);
             img.setAttribute('type', title);
-            img.setAttribute('data-id', id);
-            img.setAttribute('role', 'button');
-            img.addEventListener('click', displayLightbox);
             img.setAttribute('alt', title + ', closeup view');
-            article.appendChild(img);
+            buttonMed.setAttribute('data-id', id);
+            buttonMed.appendChild(img);
         }
         else {
             const vid = document.createElement('video');
             vid.setAttribute('class', 'media');
-            vid.addEventListener('click', displayLightbox);
-            vid.setAttribute('data-id', id);
-            vid.setAttribute('role', 'button');
+
             const source = document.createElement('source');
             source.setAttribute('src', media);
             source.setAttribute('type', 'video/' + media.substring(media.lastIndexOf('.') + 1, media.length));
             vid.appendChild(source);
-            article.appendChild(vid);
+            buttonMed.setAttribute('data-id', id);
+            buttonMed.appendChild(vid);
         }
+        article.appendChild(buttonMed); 
         const div = document.createElement('div');
         const picTitle = document.createElement('a');
         picTitle.textContent = title;
