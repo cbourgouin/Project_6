@@ -24,7 +24,7 @@ function displayLightbox() {
 
         //Récuperation des données
         const str = document.location.href;
-        const myUrl = new URL(str);
+        // const myUrl = new URL(str);
         const medias = await getMedia();
         const media = await medias.filter((json) => {
             return json.id == this.dataset.id;
