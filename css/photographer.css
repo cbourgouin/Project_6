@@ -101,7 +101,7 @@ header {
     margin: 10px 0 30px 100px;
 }
 
-.select a {
+.select label {
     font-weight: 700;
     font-size: 18px;
     line-height: 60px;
